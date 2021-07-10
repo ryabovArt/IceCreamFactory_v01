@@ -18,7 +18,8 @@ public class SetButtonInteractable : MonoBehaviour
     /// </summary>
     private void CheckClic()
     {
-        StartCoroutine(InteractableButton());
+        if (GameManager.instance.numberOfGamesPlayed > 0)
+            StartCoroutine(InteractableButton());
     }
 
     IEnumerator InteractableButton()

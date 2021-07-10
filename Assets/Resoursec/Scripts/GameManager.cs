@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
 
     public List<DispenserData> additionalDispenserData = new List<DispenserData>();
 
-    [SerializeField] private List<Texture> textures = new List<Texture>();
+    /*[SerializeField] private*/ public List<Texture> textures = new List<Texture>();
 
     [SerializeField] private List<GameObject> spawnedIceCreame = new List<GameObject>();
     public List<GameObject> SpawnedIceCreame { get => spawnedIceCreame; }
@@ -57,6 +57,7 @@ public class GameManager : MonoBehaviour
     public int dispenserCountInLevel;
     public static int staticLevel;
     public int totalNumberOfDispensers;
+    public GameObject doTapText;
 
     #endregion
 
@@ -71,9 +72,15 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         //PlayerPrefs.DeleteKey("NumberOfGamesPlayed");
+        //PlayerPrefs.SetInt("NumberOfGamesPlayed", 0);
         numberOfGamesPlayed = PlayerPrefs.GetInt("NumberOfGamesPlayed");
 
-        PlayerPrefs.SetInt("Level", level);
+        //PlayerPrefs.DeleteKey("CountGamesToChangeLevel");
+        countGamesToChangeLevel = PlayerPrefs.GetInt("CountGamesToChangeLevel");
+
+        //PlayerPrefs.SetInt("Level", 1);
+        //PlayerPrefs.SetInt("Level", level);
+        level = PlayerPrefs.GetInt("Level");
 
         levelProgressIndex = dispenserData.Count;
         ChangeLevel();
@@ -204,7 +211,10 @@ public class GameManager : MonoBehaviour
         if (numberOfGamesPlayed == countGamesToChangeLevel)
         {
             level++;
+            PlayerPrefs.SetInt("Level", level);
             countGamesToChangeLevel += 10;
+            PlayerPrefs.SetInt("CountGamesToChangeLevel", countGamesToChangeLevel);
+            
         }
     }
 }

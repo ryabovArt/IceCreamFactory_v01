@@ -9,6 +9,13 @@ public class SpawnIceCream : MonoBehaviour
 
     [SerializeField] private List<Texture> textures = new List<Texture>();
 
+    public Renderer rend;
+
+    private void Start()
+    {
+        rend = GetComponent<Renderer>();
+    }
+
     /// <summary>
     /// Спавним из дозатора мороженое, топпинг или посыпку
     /// </summary>
@@ -17,7 +24,8 @@ public class SpawnIceCream : MonoBehaviour
         if (gameObject.CompareTag("Dispenser"))
         {
             var go = Instantiate(iceCreamData[GameManager.instance.dispenserIndex - 1].prefab, gameObject.transform.position, Quaternion.identity);
-            go.GetComponent<MeshRenderer>().material.mainTexture = textures[GameManager.instance.dispenserIndex - 1];
+            //go.GetComponent<MeshRenderer>().material.mainTexture = textures[GameManager.instance.dispenserIndex - 1];
+            go.GetComponent<Renderer>().material.SetTexture("_texture", textures[GameManager.instance.dispenserIndex - 1]);
             GetComponentInChildren<DoseIceCream>().Dose();
         }
         if (gameObject.CompareTag("Topping"))
@@ -38,6 +46,7 @@ public class SpawnIceCream : MonoBehaviour
     public void SpawnFirstIceCream()
     {
         var go = Instantiate(iceCreamData[GameManager.instance.dispenserIndex - 1].prefab, gameObject.transform.position, Quaternion.identity);
-        go.GetComponent<MeshRenderer>().material.mainTexture = textures[GameManager.instance.dispenserIndex - 1];
+        //go.GetComponent<MeshRenderer>().material.mainTexture = textures[GameManager.instance.dispenserIndex - 1];
+        go.GetComponent<Renderer>().material.SetTexture("_texture", textures[GameManager.instance.dispenserIndex - 1]);
     }
 }

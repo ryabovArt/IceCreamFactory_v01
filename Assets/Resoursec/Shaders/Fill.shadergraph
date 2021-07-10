@@ -1194,7 +1194,7 @@
     },
     "m_Name": "_texture",
     "m_DefaultReferenceName": "Texture2D_77f69dffcae54ffe8d4e3d7c02cfc2a9",
-    "m_OverrideReferenceName": "",
+    "m_OverrideReferenceName": "_texture",
     "m_GeneratePropertyBlock": true,
     "m_Precision": 0,
     "overrideHLSLDeclaration": false,

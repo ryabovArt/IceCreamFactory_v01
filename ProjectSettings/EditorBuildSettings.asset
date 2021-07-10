@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/WheelOfFortune.unity
     guid: 7188ef947359d2d4e94867eb6b345727
+  - enabled: 1
+    path: Assets/Scenes/NewVarietyOfIceCream.unity
+    guid: d9a8de141aa77f64096fab2d464a042c
   m_configObjects: {}

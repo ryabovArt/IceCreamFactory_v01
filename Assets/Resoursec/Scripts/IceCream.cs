@@ -9,7 +9,7 @@ public class IceCream : MonoBehaviour
 
     [SerializeField] private Animator iceCreamAnimator;
 
-    [SerializeField] private Renderer rend;
+    public Renderer rend;
     private float filling = 0.9f;
 
     public GameObject effects;
@@ -38,6 +38,8 @@ public class IceCream : MonoBehaviour
 
         effects = GameObject.FindGameObjectWithTag("Effects");
         playEffect = effects.GetComponent<Effects>();
+
+        //rend.material.SetTexture("_texture", GameManager.instance.textures[GameManager.instance.dispenserIndex - 1]);
     }
 
     /// <summary>

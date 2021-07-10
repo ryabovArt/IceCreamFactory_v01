@@ -20,6 +20,7 @@ TagManager:
   - Nuts
   - Box
   - Coins
+  - DoTap
   layers:
   - Default
   - TransparentFX

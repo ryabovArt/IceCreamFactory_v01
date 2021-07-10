@@ -27,14 +27,23 @@ public class EndLevel : MonoBehaviour
         PlayerPrefs.SetInt("NumberOfGamesPlayed", GameManager.instance.numberOfGamesPlayed);
 
         yield return new WaitForSeconds(5f);
-        
-        if (GameManager.staticLevel == 0)
+
+        if (GameManager.instance.numberOfGamesPlayed % 10 == 0)
         {
-            SceneManager.LoadScene("Lose");
+            Destroy(GameObject.FindGameObjectWithTag("WaffleCone"));
+            SceneManager.LoadScene("NewVarietyOfIceCream");
         }
-        if (GameManager.staticLevel > 0)
+        else
         {
-            SceneManager.LoadScene("Win");
+            if (GameManager.staticLevel == 0)
+            {
+                Destroy(GameObject.FindGameObjectWithTag("WaffleCone"));
+                SceneManager.LoadScene("Lose");
+            }
+            if (GameManager.staticLevel > 0)
+            {
+                SceneManager.LoadScene("Win");
+            }
         }
     }
 }

@@ -47,6 +47,14 @@ public class MoveDispenser : MoveObjectFromStartToFinish
         {
             OnMiss?.Invoke();
         }
+        if (other.CompareTag("DoTap"))
+        {
+            if (GameManager.instance.level == 1 && GameManager.instance.numberOfGamesPlayed == 0)
+            {
+                GameManager.instance.doTapText.SetActive(true);
+                Time.timeScale = 0;
+            }
+        }
     }
 
     IEnumerator ChangeEndPoint()
