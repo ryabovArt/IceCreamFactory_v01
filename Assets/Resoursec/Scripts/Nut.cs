@@ -18,5 +18,9 @@ public class Nut : MonoBehaviour
             rigidbody.constraints = RigidbodyConstraints.FreezeAll;
             gameObject.GetComponent<Transform>().parent = other.transform;
         }
+        if (other.CompareTag("Floor"))
+        {
+            rigidbody.constraints = RigidbodyConstraints.FreezeAll;
+        }
     }
 }

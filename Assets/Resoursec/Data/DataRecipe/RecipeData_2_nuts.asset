@@ -15,4 +15,4 @@ MonoBehaviour:
   iceCreamCount: 2
   toppingColor: {r: 0, g: 0, b: 0, a: 0}
   nuts: 1
-  recipe: {fileID: 21300000, guid: d03144abb1c60fb47b10f2f50f21c1c3, type: 3}
+  recipe: {fileID: 21300000, guid: 25f5697e1a444e74a8295e3dfd3429a0, type: 3}

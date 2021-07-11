@@ -15,6 +15,10 @@ public class EndLevel : MonoBehaviour
     {
         if (other.CompareTag("Finish"))
         {
+            //for (int i = 0; i < IceCream.indexOfIceCreamInCone.Count; i++)
+            //{
+            //    print("indexOfIceCreamInCone " + IceCream.indexOfIceCreamInCone[i]);
+            //}
             StartCoroutine(DelayBeforeChangingTheScene());
         }
     }
@@ -22,6 +26,8 @@ public class EndLevel : MonoBehaviour
     IEnumerator DelayBeforeChangingTheScene()
     {
         endLevel?.Invoke();
+
+        MoveDispenser.index = 0;
 
         GameManager.instance.numberOfGamesPlayed++;
         PlayerPrefs.SetInt("NumberOfGamesPlayed", GameManager.instance.numberOfGamesPlayed);
@@ -31,19 +37,25 @@ public class EndLevel : MonoBehaviour
         if (GameManager.instance.numberOfGamesPlayed % 10 == 0)
         {
             Destroy(GameObject.FindGameObjectWithTag("WaffleCone"));
+            //GameObject.FindGameObjectWithTag("WaffleCone").SetActive(false);
             SceneManager.LoadScene("NewVarietyOfIceCream");
         }
         else
         {
-            if (GameManager.staticLevel == 0)
-            {
-                Destroy(GameObject.FindGameObjectWithTag("WaffleCone"));
-                SceneManager.LoadScene("Lose");
-            }
-            if (GameManager.staticLevel > 0)
-            {
-                SceneManager.LoadScene("Win");
-            }
+            LoseOrWin();
+        }
+    }
+
+    public void LoseOrWin()
+    {
+        if (GameManager.staticLevel == 0)
+        {
+            Destroy(GameObject.FindGameObjectWithTag("WaffleCone"));
+            SceneManager.LoadScene("Lose");
+        }
+        if (GameManager.staticLevel > 0)
+        {
+            SceneManager.LoadScene("Win");
         }
     }
 }

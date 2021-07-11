@@ -1,10 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InstantiateIceCream : MonoBehaviour
 {
     [SerializeField] private GameObject doTap;
+    public Button button;
+
+    private void Start()
+    {
+        if (GameManager.instance.level == 1 && GameManager.instance.numberOfGamesPlayed == 0)
+        {
+            button.interactable = false;
+        }
+    }
 
     /// <summary>
     /// Спавним мороженое, посыпку или поливку из дозатора

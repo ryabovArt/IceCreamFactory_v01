@@ -55,5 +55,8 @@ public class SetStarsOnWinScene : MonoBehaviour
         {
             crosses[IceCream.indexOfIceCreamInCone[i] - 1].SetActive(false);
         }
+
+        print(GameManager.instance.dispenserCountInLevel);
+        print(IceCream.indexOfIceCreamInCone.Count);
     }
 }

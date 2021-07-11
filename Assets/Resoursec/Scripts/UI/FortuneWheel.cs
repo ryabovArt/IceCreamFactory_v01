@@ -22,12 +22,16 @@ public class FortuneWheel : MonoBehaviour
 
     private DateTime timerEnd;
 
+    TimeSpan delta;
+
 
     void Start()
     {
-        //isCanTurn = true;
-        timerEnd = DateTime.Now.AddMinutes(240);
-        CheckOffline();
+        isCanTurn = true;
+        //timerEnd = DateTime.Now.AddMinutes(240);
+        //CheckOffline();
+        //timerEnd = DateTime.Now.AddMinutes(240 - (timeSpan.Minutes));
+        print("timeSpan.Minutes " + timeSpan.Minutes);
     }
 
     public void CheckOffline()
@@ -38,11 +42,11 @@ public class FortuneWheel : MonoBehaviour
             print(string.Format("вас не было: {0} дней, {1} часов, {2} минут, {3} секунд",
                 timeSpan.Days, timeSpan.Hours, timeSpan.Minutes, timeSpan.Seconds));
 
-            if (/*timeSpan.Days >= 0 && timeSpan.Hours >= 4*/timeSpan.Seconds > 15)
+            if (/*timeSpan.Days >= 0 && timeSpan.Hours >= 4*/timeSpan.Seconds > 30)
             {
                 isCanTurn = true;
             }
-            if (/*timeSpan.Days == 0 && timeSpan.Hours < 4*/timeSpan.Seconds < 15)
+            if (/*timeSpan.Days == 0 && timeSpan.Hours < 4*/timeSpan.Seconds < 30)
             {
                 isCanTurn = false;
             }
@@ -52,8 +56,9 @@ public class FortuneWheel : MonoBehaviour
 
     private void Update()
     {
-        //TimeSpan delta = timerEnd - DateTime.Now;
+        //delta = timerEnd - DateTime.Now;
         //Debug.Log(delta.Hours.ToString("00") + ":" + delta.Minutes.ToString("00"));
+        //timeToBonus.text = delta.Hours.ToString() + ":" + delta.Minutes.ToString() + ":" + delta.Seconds.ToString();
         //if (delta.TotalHours <= 0 && delta.TotalMinutes <= 0)
         //{
         //    Debug.Log("The END");

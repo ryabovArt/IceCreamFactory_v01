@@ -4904,7 +4904,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: -0.32, y: 1, z: 1}
+  m_Size: {x: -0.32, y: 1, z: 3}
   m_Center: {x: 0.87, y: -0.53, z: 0}
 --- !u!114 &2520161622608078411
 MonoBehaviour:
@@ -4928,6 +4928,7 @@ MonoBehaviour:
   - {fileID: 2800000, guid: eccf94193fe14bd41b74b3500fb567db, type: 3}
   - {fileID: 2800000, guid: 9fe86755c12ada348b45813d9386eda7, type: 3}
   - {fileID: 2800000, guid: 34df10a38e989a7428d8c2c33e214bb9, type: 3}
+  rend: {fileID: 0}
 --- !u!114 &2520161622608078410
 MonoBehaviour:
   m_ObjectHideFlags: 0

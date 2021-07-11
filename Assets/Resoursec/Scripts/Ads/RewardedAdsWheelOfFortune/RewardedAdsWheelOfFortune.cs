@@ -14,25 +14,7 @@ public class RewardedAdsWheelOfFortune : MonoBehaviour, IUnityAdsListener
 
     private string rewardedVideo = "Rewarded_Android";
 
-    //private void Start()
-    //{
-    //    adsButton = GetComponent<Button>();
-    //    adsButton.interactable = Advertisement.IsReady(rewardedVideo);
-
-    //    if (adsButton)
-    //        adsButton.onClick.AddListener(ShowRewardedVideo);
-
-    //    Advertisement.AddListener(this);
-    //    Advertisement.Initialize(gameID, isTestMode);
-
-    //    #region Banner
-
-    //    Advertisement.Banner.SetPosition(BannerPosition.TOP_CENTER);
-
-    //    #endregion
-    //}
-
-    private void OnEnable()
+    private void Start()
     {
         adsButton = GetComponent<Button>();
         adsButton.interactable = Advertisement.IsReady(rewardedVideo);

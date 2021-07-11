@@ -33,7 +33,8 @@ public class LoadSceneProgressBar : MonoBehaviour
         if (slider.value == 1 && isFade == false)
         {
             isFade = true;
-            CheckOffline();
+            SceneManager.LoadScene(5);
+            //CheckOffline();
             levelChanger.FadeToLevel();
         }
     }

@@ -71,14 +71,19 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        IceCream.indexOfIceCreamInCone.Clear();
+        countGamesToChangeLevel = 10;
         //PlayerPrefs.DeleteKey("NumberOfGamesPlayed");
         //PlayerPrefs.SetInt("NumberOfGamesPlayed", 0);
-        numberOfGamesPlayed = PlayerPrefs.GetInt("NumberOfGamesPlayed");
+        if (PlayerPrefs.HasKey("NumberOfGamesPlayed"))
+            numberOfGamesPlayed = PlayerPrefs.GetInt("NumberOfGamesPlayed");
 
         //PlayerPrefs.DeleteKey("CountGamesToChangeLevel");
-        countGamesToChangeLevel = PlayerPrefs.GetInt("CountGamesToChangeLevel");
+        if (PlayerPrefs.HasKey("CountGamesToChangeLevel"))
+            countGamesToChangeLevel = PlayerPrefs.GetInt("CountGamesToChangeLevel");
 
-        //PlayerPrefs.SetInt("Level", 1);
+        //PlayerPrefs.DeleteKey("Level");
+        //PlayerPrefs.SetInt("Level", 2);
         //PlayerPrefs.SetInt("Level", level);
         level = PlayerPrefs.GetInt("Level");
 
@@ -128,7 +133,7 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(delay);
         }
 
-        if (level > 7)
+        if (level >= 7)
         {
             dispenser = Instantiate(additionalDispenserData[0].prefab, spawnPoint);
             additionalDispenserData[0].mat.color = additionalDispenserData[0].clr;
@@ -180,13 +185,15 @@ public class GameManager : MonoBehaviour
     {
         if (level == 1)
         {
-            dispenserCountInLevel = 0;
-            totalNumberOfDispensers = 0;
+            int dispenserCount = GetRecipe.recipeDatasIndex - 1;
+            dispenserCountInLevel = dispenserCount;
+            totalNumberOfDispensers = dispenserCount;
         }
         if (level > 1 && level < 4)
         {
-            dispenserCountInLevel = 1;
-            totalNumberOfDispensers = 1;
+            int dispenserCount = GetRecipe.recipeDatasIndex - 1;
+            dispenserCountInLevel = dispenserCount;
+            totalNumberOfDispensers = dispenserCount;
         }
         if (level > 3 && level <= 10)
         {

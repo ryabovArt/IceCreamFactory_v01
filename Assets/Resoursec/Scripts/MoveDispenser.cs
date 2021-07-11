@@ -51,6 +51,7 @@ public class MoveDispenser : MoveObjectFromStartToFinish
         {
             if (GameManager.instance.level == 1 && GameManager.instance.numberOfGamesPlayed == 0)
             {
+                GameManager.instance.GetComponent<InstantiateIceCream>().button.interactable = true;
                 GameManager.instance.doTapText.SetActive(true);
                 Time.timeScale = 0;
             }
